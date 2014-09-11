@@ -13,7 +13,7 @@ Clone your fork locally.
 
 From the root of your local clone:
 ```shell
-composer install # Install all dependencies
+composer install # Install the framework's dependencies
 php artisan angel:workbench   # Get the latest version of all workbenches.  Right now,
                               # it's just the core, but in the future you can use this
                               # same command to update all of your benches.
@@ -53,4 +53,8 @@ rm -rf angel-blog                              # Delete the now unnecessary ange
 git add -A                                     # Stage all files.
 git commit -m "Initial commit."                # Make the initial commit.
 git push                                       # Push it up.
+cd -                                           # Jump back to the project root.
+rm -rf workbench/angel/blog                    # Delete the workbench we just created.
+git submodule add git@github.com:MyName/angel-blog.git workbench/angel/blog
+php artisan angel:workbench
 ```
