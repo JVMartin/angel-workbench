@@ -11,3 +11,5 @@
 |
 */
 
+Artisan::add(new AngelWorkbench);
+Artisan::add(new AngelReset);
