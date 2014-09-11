@@ -12,7 +12,7 @@ Fork this repository.
 Clone your fork locally.
 
 From the root of your local clone:
-```
+```shell
 composer install # Install all dependencies
 php artisan angel:workbench   # Get the latest version of all workbenches.  Right now,
                               # it's just the core, but in the future you can use this
@@ -29,20 +29,20 @@ composer install # Install the core's dependencies
 Now, edit those config files you copied the examples from to set up your settings for your database, mail, and workbench author credentials.
 
 Finally:
-```
+```shell
 php artisan angel:reset # Reset the database and run all migrations for all benches.
                         # You'll be using this fairly often, as well.
 ```
 
 Then, install any modules you'd like to work on as benches.
-```
+```shell
 # Example:  modals
 git submodule add git@github.com:JVMartin/angel-modals.git workbench/angel/modals
 php artisan angel:workbench
 ```
 
 Or create a module:
-```
+```shell
 # Let's create a `blog` module.
 # Create a blank repository on GitHub called `angel-blog`
 php artisan workbench angel/blog --resources   # Create a workbench.
