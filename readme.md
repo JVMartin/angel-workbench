@@ -45,6 +45,7 @@ git submodule add git@github.com:JVMartin/angel-modals.git workbench/angel/modal
 php artisan angel:workbench
 php artisan angel:reset
 ```
+...and add `'Angel\Modals\ModalsServiceProvider'` to `app/config/app.php`.
 
 Or create a module:
 ```shell
@@ -64,6 +65,7 @@ git submodule add git@github.com:MyName/angel-blog.git workbench/angel/blog
 php artisan angel:workbench
 php artisan angel:reset
 ```
+...and add `'Angel\Blog\BlogServiceProvider'` to `app/config/app.php`.
 
 [Syncing the fork](https://help.github.com/articles/syncing-a-fork) with updates from the original repo:
 ```shell
