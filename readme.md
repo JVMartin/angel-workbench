@@ -11,6 +11,8 @@ Fork this repository.
 
 Clone your fork locally.
 
+First, temporarily comment out the `'Angel\Core\CoreServiceProvider'` in `app/config/app.php`.
+
 From the root of your local clone:
 ```shell
 composer install # Install the framework's dependencies
@@ -18,15 +20,17 @@ php artisan angel:workbench   # Get the latest version of all workbenches.  Righ
                               # it's just the core, but in the future you can use this
                               # same command to update all of your benches.
 cd app/config
-cp database.php.example database.php
-cp mail.php.example mail.php
-cp workbench.php.example workbench.php
-cd -
+# Copy the example configurations so you can edit them for your environment...
+cp database.php.example database.php # and edit
+cp mail.php.example mail.php # and edit
+cp workbench.php.example workbench.php # and edit
+cd - # Back to the project root
 cd workbench/angel/core
 composer install # Install the core's dependencies
+cd - # Back to the project root
 ```
 
-Now, edit those config files you copied the examples from to set up your settings for your database, mail, and workbench author credentials.
+Now uncomment the `'Angel\Core\CoreServiceProvider'` in `app/config/app.php`.
 
 Finally:
 ```shell
@@ -39,6 +43,7 @@ Then, install any modules you'd like to work on as benches.
 # Example:  modals
 git submodule add git@github.com:JVMartin/angel-modals.git workbench/angel/modals
 php artisan angel:workbench
+php artisan angel:reset
 ```
 
 Or create a module:
@@ -57,4 +62,5 @@ cd -                                           # Jump back to the project root.
 rm -rf workbench/angel/blog                    # Delete the workbench we just created.
 git submodule add git@github.com:MyName/angel-blog.git workbench/angel/blog
 php artisan angel:workbench
+php artisan angel:reset
 ```
