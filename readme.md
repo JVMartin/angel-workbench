@@ -64,3 +64,10 @@ git submodule add git@github.com:MyName/angel-blog.git workbench/angel/blog
 php artisan angel:workbench
 php artisan angel:reset
 ```
+
+[Syncing the fork](https://help.github.com/articles/syncing-a-fork) with updates from the original repo:
+```shell
+git remote add upstream git@github.com:angel-cms/angel-workbench.git # Make the original repo a remote
+git fetch upstream
+git merge upstream/master
+```
