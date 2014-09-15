@@ -80,10 +80,9 @@ class AngelReset extends Command {
 				$this->error('Not a directory: ' . $dir);
 				continue;
 			}
-			preg_match('/workbench\/(.+)/', $dir, $matches);
-			$package = $matches[1];
-			if ($package == 'angel/core') continue;
-			$this->exec('php artisan migrate --bench=' . $package);
+			$package = basename($dir);
+			if ($package == 'core') continue;
+			$this->exec('php artisan migrate --bench=angel/' . $package);
 		}
 		$this->info('...all migrations have been ran.');
 	}
