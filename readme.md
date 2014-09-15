@@ -38,7 +38,9 @@ php artisan angel:reset # Reset the database and run all migrations for all benc
                         # You'll be using this fairly often, as well.
 ```
 
-Then, install any modules you'd like to work on as benches.
+Install a Module
+----------------
+To install any modules you'd like to work on as benches:
 ```shell
 # Example:  modals
 git submodule add git@github.com:JVMartin/angel-modals.git workbench/angel/modals
@@ -47,7 +49,9 @@ php artisan angel:reset
 ```
 ...and add `'Angel\Modals\ModalsServiceProvider'` to `app/config/app.php`.
 
-Or create a module:
+Create a Module
+----------------
+To create a module:
 ```shell
 # Let's create a `blog` module.
 # Create a blank repository on GitHub called `angel-blog`
@@ -67,7 +71,10 @@ php artisan angel:reset
 ```
 ...and add `'Angel\Blog\BlogServiceProvider'` to `app/config/app.php`.
 
-[Syncing the fork](https://help.github.com/articles/syncing-a-fork) with updates from the original repo:
+Sync Upstream
+-------------
+
+To [sync your fork](https://help.github.com/articles/syncing-a-fork) with updates from the original repo:
 ```shell
 git remote add upstream git@github.com:angel-cms/angel-workbench.git # Make the original repo a remote
 git fetch upstream
