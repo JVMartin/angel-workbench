@@ -47,7 +47,9 @@ class AngelWorkbench extends Command {
 	 */
 	protected function getOptions()
 	{
-		return array();
+		return array(
+			array('assets', 'a', InputOption::VALUE_NONE, 'Also publish assets.')
+		);
 	}
 
 	/**
@@ -68,6 +70,10 @@ class AngelWorkbench extends Command {
 		$this->exec('git submodule init');
 		$this->exec('git submodule update');
 
+		if ($this->option('assets')) {
+			$this->exec('rm -rf public/packages/angel');
+		}
+
 		foreach (glob(base_path('workbench/angel/*')) as $dir) {
 			if (!is_dir($dir)) {
 				$this->error('Not a directory: ' . $dir);
@@ -77,6 +83,11 @@ class AngelWorkbench extends Command {
 			chdir($dir);
 			$this->exec('git checkout master');
 			$this->exec('git pull');
+			if ($this->option('assets')) {
+				chdir(base_path());
+				$package = basename($dir);
+				$this->exec('php artisan asset:publish --bench=angel/' . $package);
+			}
 		}
 		$this->info('...all Angel submodules have been updated.');
 	}
