@@ -15,19 +15,19 @@ First, temporarily comment out the `'Angel\Core\CoreServiceProvider'` in `app/co
 
 From the root of your local clone:
 ```shell
-composer install # Install the framework's dependencies
-php artisan angel:workbench   # Get the latest version of all workbenches.  Right now,
-                              # it's just the core, but in the future you can use this
-                              # same command to update all of your benches.
+composer install # Install Laravel
+php artisan angel:workbench -a  # Get the latest version of all workbenches
+                                # and publish their assets.
 cd app/config
 # Copy the example configurations so you can edit them for your environment...
-cp database.php.example database.php # and edit
-cp mail.php.example mail.php # and edit
-cp workbench.php.example workbench.php # and edit
+cp database.php.example database.php # and edit to taste
+cp mail.php.example mail.php # and edit to taste
+cp workbench.php.example workbench.php # and edit to taste
 cd - # Back to the project root
 cd workbench/angel/core
-composer install # Install the core's dependencies
+composer install # Install the Angel core's dependencies
 cd - # Back to the project root
+php artisan dump-autoload
 ```
 
 Now uncomment the `'Angel\Core\CoreServiceProvider'` in `app/config/app.php`.
@@ -44,8 +44,9 @@ To install any modules you'd like to work on as benches:
 ```shell
 # Example:  modals
 git submodule add git@github.com:JVMartin/angel-modals.git workbench/angel/modals
-php artisan angel:workbench
+php artisan angel:workbench -a
 php artisan angel:reset
+php artisan dump-autoload
 ```
 ...and add `'Angel\Modals\ModalsServiceProvider'` to `app/config/app.php`.
 
@@ -68,6 +69,7 @@ rm -rf workbench/angel/blog                    # Delete the workbench we just cr
 git submodule add git@github.com:MyName/angel-blog.git workbench/angel/blog
 php artisan angel:workbench
 php artisan angel:reset
+php artisan dump-autoload
 ```
 ...and add `'Angel\Blog\BlogServiceProvider'` to `app/config/app.php`.
 
