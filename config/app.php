@@ -145,7 +145,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
-		//'Angel\Core\CoreServiceProvider',
+		'Angel\Core\CoreServiceProvider',
 	],
 
 	/*
