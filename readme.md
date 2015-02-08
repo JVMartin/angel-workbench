@@ -11,7 +11,7 @@ Fork this repository.
 
 Clone your fork locally.
 
-First, temporarily comment out the `'Angel\Core\CoreServiceProvider'` in `app/config/app.php`.
+First, temporarily comment out the `'Angel\Core\CoreServiceProvider'` in `config/app.php`.
 
 From the root of your local clone:
 ```shell
